@@ -1,0 +1,63 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Home.css">
+     <link rel="stylesheet" href="Carousel.css">
+     
+</head>
+
+<body>
+<div class="about-main">
+  <div class="about-body">
+    <div class="about-left">
+      <h1>CONSTRUCTION</h1>
+      <h1>SOLUTIONS</h1>
+      <div class="cen-btn">Learn more</div>
+    </div>
+    <div class="about-right">
+    <div class="carousel">
+        <div class="carousel-content">
+            <img src="P1.png" alt="Slide 1" class="active">
+            <img src="P1.png" alt="Slide 2">
+        </div>
+        <div class="round-buttons">
+            <button class="round-button active" onclick="goToSlide(0)"></button>
+            <button class="round-button" onclick="goToSlide(1)"></button>
+        </div>
+    </div>
+    <script>
+        const images = document.querySelectorAll('.carousel-content img');
+        const buttons = document.querySelectorAll('.round-button');
+
+        let currentIndex = 0;
+
+        function goToSlide(index) {
+            images[currentIndex].classList.remove('active');
+            buttons[currentIndex].classList.remove('active');
+
+            currentIndex = index;
+
+            images[currentIndex].classList.add('active');
+            buttons[currentIndex].classList.add('active');
+        }
+
+        function startCarousel() {
+            setInterval(() => {
+                const nextIndex = (currentIndex + 1) % images.length;
+                goToSlide(nextIndex);
+            }, 3000);
+        }
+
+        startCarousel(); // Start the carousel when the page loads
+    </script>
+
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- <iframe style="width: 100%; height: 100vh; margin: 0px;" src="Contact.html" seamless></iframe> -->
+</body>
+ 
+</html>
